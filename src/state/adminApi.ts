@@ -442,7 +442,7 @@ export const adminApi = createApi({
         method: "PUT",
         body,
       }),
-      invalidatesTags: (res, err, arg) => [
+      invalidatesTags: (_res, _err, arg) => [
         { type: "Users", id: arg.id },
         { type: "Users", id: "LIST" },
       ],
@@ -461,7 +461,7 @@ export const adminApi = createApi({
         method: "PATCH",
         body: { roleTitle },
       }),
-      invalidatesTags: (res, err, arg) => [
+      invalidatesTags: (_res, _err, arg) => [
         { type: "Users", id: arg.id },
         { type: "Users", id: "LIST" },
         { type: "Roles", id: "LIST" },
@@ -512,7 +512,7 @@ export const adminApi = createApi({
         method: "PATCH",
         body: { permissions },
       }),
-      invalidatesTags: (res, err, arg) => [
+      invalidatesTags: (_res, _err, arg) => [
         { type: "Roles", id: arg.id },
         { type: "Roles", id: "LIST" },
       ],
@@ -597,12 +597,12 @@ export const adminApi = createApi({
 
     getSponsorById: builder.query<any, string>({
       query: (id) => `/admin/api/sponsors/${id}`,
-      providesTags: (result, error, id) => [{ type: "Sponsors", id }],
+      providesTags: (_result, _error, id) => [{ type: "Sponsors", id }],
     }),
 
     getSponsorScholarships: builder.query<any, { sponsorId: string }>({
       query: ({ sponsorId }) => `/admin/api/sponsors/${sponsorId}/scholarships`,
-      providesTags: (result, error, arg) => [
+      providesTags: (_result, _error, arg) => [
         { type: "Sponsors", id: arg.sponsorId },
       ],
     }),
@@ -616,7 +616,7 @@ export const adminApi = createApi({
         if (scholarshipId) params.set("scholarshipId", scholarshipId);
         return `/admin/api/sponsors/${sponsorId}/applicants?${params.toString()}`;
       },
-      providesTags: (result, error, arg) => [
+      providesTags: (_result, _error, arg) => [
         { type: "Sponsors", id: arg.sponsorId },
       ],
     }),
@@ -631,7 +631,7 @@ export const adminApi = createApi({
         params.set("limit", String(limit));
         return `/admin/api/sponsors/${sponsorId}/transactions?${params.toString()}`;
       },
-      providesTags: (result, error, arg) => [
+      providesTags: (_result, _error, arg) => [
         { type: "Sponsors", id: arg.sponsorId },
       ],
     }),
@@ -639,7 +639,7 @@ export const adminApi = createApi({
     getScholarOverview: builder.query<any, string>({
       query: (scholarId) =>
         `/admin/api/sponsors/scholars/${scholarId}/overview`,
-      providesTags: (result, error, id) => [{ type: "Scholars", id }],
+      providesTags: (_result, _error, id) => [{ type: "Scholars", id }],
     }),
 
     updateScholarStatuss: builder.mutation<
@@ -651,7 +651,7 @@ export const adminApi = createApi({
         method: "PATCH",
         body,
       }),
-      invalidatesTags: (result, error, arg) => [
+      invalidatesTags: (_result, _error, arg) => [
         { type: "Scholars", id: arg.scholarId },
       ],
     }),
@@ -661,7 +661,7 @@ export const adminApi = createApi({
     >({
       query: ({ sponsorId, scholarshipId }) =>
         `/admin/api/sponsors/${sponsorId}/scholarships/${scholarshipId}`,
-      providesTags: (result, error, arg) => [
+      providesTags: (_result, _error, arg) => [
         { type: "Sponsors", id: arg.sponsorId },
       ],
     }),

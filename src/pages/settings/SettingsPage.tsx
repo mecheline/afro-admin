@@ -1,7 +1,6 @@
 "use client";
 
 import React, { useEffect, useRef, useState } from "react";
-import { ArrowLeft, ChevronDown } from "lucide-react";
 import { useDispatch, useSelector } from "react-redux";
 import { toast } from "sonner";
 
@@ -109,7 +108,7 @@ export default function AdminSettingsPage() {
             ...currentUser,
             avatarUrl: avatarRes.avatarUrl,
           };
-          d(setUser(updated)); // 🔁 this makes the header image update
+          d(setUser(updated)); // this makes the header image update
         }
       }
 

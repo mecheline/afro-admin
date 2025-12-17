@@ -94,7 +94,7 @@ const ScholarVerificationDetailPage: React.FC = () => {
     useAcceptScholarDocumentsMutation();
   const [rejectDocs, { isLoading: isRejecting }] =
     useRejectScholarDocumentsMutation();
-  const [verifyScholar, { isLoading: isVerifying }] =
+  const [verifyScholar] =
     useVerifyScholarMutation();
 
   const [fundScholar, { isLoading: fundLoading }] = useFundScholarMutation();
@@ -204,7 +204,7 @@ const ScholarVerificationDetailPage: React.FC = () => {
     }
   };
 
-  const handleVerify = async () => {
+  /* const handleVerify = async () => {
     try {
       await verifyScholar(detail.scholarId).unwrap();
       toast.success("Scholar verified successfully");
@@ -212,7 +212,7 @@ const ScholarVerificationDetailPage: React.FC = () => {
     } catch (err: any) {
       toast.error(err?.data?.message || "Failed to verify scholar");
     }
-  };
+  }; */
 
   // OLD:
   // const handleClick = async () => { ... }

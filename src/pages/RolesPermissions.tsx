@@ -8,7 +8,6 @@ import {
 } from "@/auth/rbac";
 
 import Modal from "@/ui/Modal";
-import type { RootState } from "@/state/store";
 
 // 🔗 RTK Query hooks for roles (adjust path/names if needed)
 import {

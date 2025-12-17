@@ -53,8 +53,7 @@ const StatusPill: React.FC<{ status: DocVerificationStatus }> = ({
 
 const ActionMenu: React.FC<{
   onViewDocument: () => void;
-  onViewProfile: () => void;
-}> = ({ onViewDocument, onViewProfile }) => (
+}> = ({ onViewDocument }) => (
   <div className="z-30 w-40 rounded-lg border border-gray-200 bg-white py-1 text-sm shadow-lg">
     <button
       className="flex w-full items-center px-3 py-2 text-left hover:bg-gray-50"
@@ -161,16 +160,6 @@ const DocumentVerificationsPage: React.FC = () => {
       navigate(`/verifications/scholars/${row.verificationId}`);
     } else {
       navigate(`/verifications/sponsors/${row.sponsorId}`);
-    }
-  };
-
-  const handleViewProfile = (row: AnyRow) => {
-    setOpenMenuId(null);
-
-    if ("scholarId" in row) {
-      navigate(`/admin/scholars/${row.scholarId}`);
-    } else {
-      navigate(`/admin/sponsors/${row.sponsorId}`);
     }
   };
 
@@ -306,7 +295,6 @@ const DocumentVerificationsPage: React.FC = () => {
                         <div className="absolute right-4 top-9">
                           <ActionMenu
                             onViewDocument={() => handleViewDocument(row)}
-                            onViewProfile={() => handleViewProfile(row)}
                           />
                         </div>
                       )}
