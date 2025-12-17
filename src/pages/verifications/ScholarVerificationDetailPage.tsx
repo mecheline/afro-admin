@@ -1,4 +1,3 @@
-// src/features/admin/document-verifications/ScholarVerificationDetailPage.tsx
 import React from "react";
 import { useNavigate, useParams } from "react-router";
 import { toast } from "sonner";
@@ -7,7 +6,7 @@ import {
   useGetScholarVerificationDetailQuery,
   useAcceptScholarDocumentsMutation,
   useRejectScholarDocumentsMutation,
-  useVerifyScholarMutation,
+  //useVerifyScholarMutation,
   type ScholarVerificationDetail,
   useFundScholarMutation,
 } from "../../state/adminApi";
@@ -94,8 +93,8 @@ const ScholarVerificationDetailPage: React.FC = () => {
     useAcceptScholarDocumentsMutation();
   const [rejectDocs, { isLoading: isRejecting }] =
     useRejectScholarDocumentsMutation();
-  const [verifyScholar] =
-    useVerifyScholarMutation();
+  /*   const [verifyScholar] =
+    useVerifyScholarMutation(); */
 
   const [fundScholar, { isLoading: fundLoading }] = useFundScholarMutation();
 
